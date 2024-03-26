@@ -1,8 +1,114 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Template Editor</title>
+    <link
+      href="https://cdn.quilljs.com/1.0.0/quill.snow.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+      }
+      .sidebar {
+        background-color: #f1f1f1;
+        padding: 10px;
+        width: 20%;
+      }
+      main {
+        padding: 10px;
+        width: 80%;
+      }
+
+      .templates-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .templates-list li {
+        margin: 5px 0;
+        cursor: pointer;
+        list-style: none;
+        padding: 20px 5px;
+        border-radius: 10px;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .templates-list li:hover {
+        background-color: #ddd;
+      }
+
+      .templates-list li:active,
+      .templates-list li.selected {
+        background-color: #ccc;
+      }
+
+      #editor-container {
+        height: 375px;
+      }
+
+      button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .red {
+        background-color: #d84c42;
+      }
+    </style>
+  </head>
   <body>
-    <div>
-      <p>Contact diogogomes@microsoft.com for any questions or suggestions</p>
+    <header>
+      <h1>Template Editor</h1>
+    </header>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Templates</h2>
+        <ul class="templates-list"></ul>
+        <button id="add-template">Add New Template</button>
+        <p><em>Add upto 5 extra templates </em></p>
+      </div>
+      <main class="hide">
+        <h2 class="template-name">Selected Template</h2>
+        <div id="editor-container"></div>
+        <button id="save-template">Save Template</button>
+        <button id="delete-template" class="red hide">Delete Template</button>
+      </main>
     </div>
+    <script src="./libs/quill.min.js"></script>
+    <script src="options.js"></script>
   </body>
 </html>
